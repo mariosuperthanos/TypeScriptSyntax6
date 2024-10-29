@@ -45,7 +45,7 @@ let error = (): never => {
   throw Error('oopos');
 }
 
-//interface - like struct in c++
+// Interface - like struct in c++
 interface RobotArmy {
   count: number,
   type: string,
@@ -56,10 +56,32 @@ let fightRobotArmy = (robots: RobotArmy) => {
   console.log('Fight');
 }
 fightRobotArmy({count:1, type:'dragon'});
+// it's as same as:
 let fightRobotArmy2 = (robots:{count: number, type: string, magic: string}) => {
   console.log('Fight');
 }
+// Extending interfaces:
 
+interface BigArmy extends RobotArmy{
+  totalArmies: number,
+}
+
+let FirstArmy: BigArmy = {
+  // properties
+}
+
+// Type
+
+type RobotArmy = {
+  count: number;
+  type: string;
+};
+
+// Extending Types
+
+type BigArmy = RobotArmy & {
+  totalArmies: number;
+};
 
 // Type Assertion
 interface CatArmy {
