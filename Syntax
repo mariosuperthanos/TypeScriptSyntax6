@@ -1,0 +1,102 @@
+// boolean
+let isCool:boolean = true;
+
+// number
+let age: number = 56;
+
+// string
+let eyeColor: string = 'brown';
+let favouriteQuote: string = `I'm not old, i'm only ${age}`;
+
+// Array
+let pets: string[] = ['cat','dog', 'pig'];
+let pets2: Array<string> = ['lion', 'dragon', 'lizard'];
+
+// Object
+let wizard: object = {
+  a:'John'
+}
+
+// null and undefined
+let meh: undefined = undefined;
+let noo: null = null;
+
+// Tuple
+let basket: [string, number];
+basket = ['bascketball',5];
+
+// Enum
+enum Size { Small = 1, Medium = 2, Large = 3};
+let sizeName: number = Size.Small;
+
+
+// Any - !!!!!! BE CAREFUL
+
+let whatever: any = 'aghhhh nooooo!';
+whatever = Size.Small;
+
+// void - for functions that return nothing
+let sing = (): void =>{
+  console.log('lalalala');
+}
+
+// never - for functions that doesnn't have a reacheble endpoint
+let error = (): never => {
+  throw Error('oopos');
+}
+
+//interface - like struct in c++
+interface RobotArmy {
+  count: number,
+  type: string,
+  magic?: string,
+}
+
+let fightRobotArmy = (robots: RobotArmy) => {
+  console.log('Fight');
+}
+fightRobotArmy({count:1, type:'dragon'});
+let fightRobotArmy2 = (robots:{count: number, type: string, magic: string}) => {
+  console.log('Fight');
+}
+
+
+// Type Assertion
+interface CatArmy {
+  count: number,
+  type: string,
+  magic: string,
+}
+
+let dog = {} as CatArmy;
+dog.count
+
+// Function
+let fightRobotArmy3 = (robots: RobotArmy): void => {
+  console.log('Fight');
+}
+
+let fightRobotArmy4 = (robots:{count: number, type: string, magic: string}): number => {
+  console.log('Fight');
+  return 5;
+}
+
+// Class
+class Animal {
+  private sing: string = 'lalalala';
+  constructor(sound: string) {
+    this.sing = sound;
+  }
+
+  greet(): string{
+    return `Hello ${this.sing}`;
+  }
+}
+let lion = new Animal('RAAAWWWR');
+console.log(lion.greet());
+
+// Union 
+let confused: string | number | boolean = true;
+
+// let x: number = 4;
+// x = 'hello';
